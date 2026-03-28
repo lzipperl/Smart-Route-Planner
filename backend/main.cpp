@@ -16,7 +16,7 @@
  */
 
 #include "httplib.h"
-#include "json.hpp"
+#include <nlohmann/json.hpp>
 #include "graph.h"
 #include "dijkstra.h"
 #include "astar.h"
