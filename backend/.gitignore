@@ -1,0 +1,5 @@
+build/
+Release/
+routeiq_server
+routeiq_server.exe
+.cache/
