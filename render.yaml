@@ -1,0 +1,28 @@
+# ═══════════════════════════════════════════
+# Render.com Deployment Configuration
+# ═══════════════════════════════════════════
+# Deploy the C++ backend as a Docker web service.
+# 
+# Steps:
+#   1. Push this repo to GitHub
+#   2. Go to render.com → New → Web Service
+#   3. Connect your GitHub repo
+#   4. Set root directory to "backend"
+#   5. Render will auto-detect the Dockerfile
+#   6. Set environment variable PORT=8080
+#   7. Deploy!
+
+services:
+  - type: web
+    name: routeiq-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+    healthCheckPath: /health
+    buildFilter:
+      paths:
+        - backend/**
